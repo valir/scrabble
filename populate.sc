@@ -56,7 +56,7 @@ val mesh: Seq[File] => UIO[Unit] = files => ZIO.collectAll{
     val commands = Seq(
       "regenerate"/*,
       "export-mesh -o %.stl"*/
-    ).map(c => s"solvespace.cli $c $path")
+    ).map(c => s"solvespace-cli $c $path")
       .map(s => ZIO.effectTotal(s.!))
     ZIO.collectAll(commands).unit
   }
